@@ -6,6 +6,10 @@
   "types": "./dist/seo.d.ts",
   "author": "Hungry Bear Studio <roar@hungrybearstudio.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/molebox/gatsby-theme-seo"
+  },
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
