@@ -1,0 +1,44 @@
+{
+  "name": "gatsby-theme-seo",
+  "version": "0.0.1",
+  "description": "An gatsby theme that implements SEO for your website",
+  "main": "index.js",
+  "types": "./dist/seo.d.ts",
+  "author": "Hungry Bear Studio <roar@hungrybearstudio.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "pretty-check": "prettier --check \"src/**/*.{js,tsx,ts}\"",
+    "pretty": "prettier --write \"src/**/*{js,tsx,ts}\""
+  },
+  "keywords": [
+    "gatsby",
+    "seo",
+    "gatsby-plugin",
+    "gatsby-theme",
+    "react"
+  ],
+  "dependencies": {
+    "gatsby": "^2.15.16",
+    "gatsby-plugin-react-helmet": "^3.1.7",
+    "gatsby-plugin-typescript": "^2.1.8",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.15.16",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-helmet": "^5.0.10",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.3"
+  }
+}
