@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 
 interface Props {
 	title: string;
-	description: string;
+	description?: string;
 	lang: string;
 	image?: Image;
 	meta?: [];
@@ -33,7 +33,7 @@ const SEO = ({ title, description, lang = 'en', meta, image, keywords, pathname 
 		<StaticQuery
 			query={detailsQuery}
 			render={(data) => {
-				const metaDescription = description || data.site.siteMetadata.description;
+				const metaDescription = description || '';
 				const metaImage = image && image.src ? `${data.site.siteMetadata.siteUrl}${image.src}` : null;
 				const metaUrl = `${data.site.siteMetadata.siteUrl}${pathname}`;
 				return (
@@ -132,7 +132,6 @@ const detailsQuery = graphql`
 			siteMetadata {
 				title
 				siteUrl
-				description
 				author
 				social {
 					twitter

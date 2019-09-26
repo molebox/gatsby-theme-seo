@@ -1,11 +1,10 @@
 module.exports = (options) => {
-    const {title, author, description, siteUrl, social} = options;
+    const {title, author, siteUrl, social} = options;
 
     return {
         siteMetadata: {
             title,
             author,
-            description,
             siteUrl,
             social
         },
