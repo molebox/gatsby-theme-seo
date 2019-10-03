@@ -10,7 +10,7 @@ A Gatsby theme for site SEO. Built with TypeScript.
 | Name          | Optional | Type       | Default |
 |---------------|----------|------------|---------|
 | title         |   No     | string     | None    |
-| description   |   No     | string     | None    |
+| description   |   Yes    | string     | None    |
 | lang          |   No     | string     | 'en'    |
 | image         |   Yes    | Image      | None    |
 | meta          |   Yes    | array      | None    |
@@ -36,8 +36,7 @@ module.exports = {
          {
             resolve: 'gatsby-theme-seo', 
             options: {
-                title: 'My Website',
-                description: 'I am describing my website right here!',
+                title: 'My awesome website',
                 author: 'Rich Haines',
                 siteUrl: 'https://www.myawesomewebsite.com',
                 social: {
@@ -55,12 +54,52 @@ import {SEO} from 'gatsby-theme-seo';
 
 const Index = () => (
     <div>
-        <SEO title="Test" />
+        <SEO title="Test" description="My site is super amazing"/>
         <h1>This is a title</h1>
     </div>
 )
 
 export default Index;
+```
+
+The description is optional so you can grab it (as well as other data like keywords and images) from a data source. This gives you the flexibility to allow your CMS to dictate this information instead of the hardcoded values from the themes options.
+
+```
+import React from 'react';
+import {SEO} from 'gatsby-theme-seo';
+import {graphql, useStaticQuery} from 'gatsby';
+
+const Index = () => {
+  const content = useStaticQuery(query);
+  const metadata = content.allSanityMetadata.edges;
+  return (
+    <Layout>
+      {metadata.map(({node}) => (
+        <SEO
+        title="My Awesome Website"
+        description={node.description}
+        keywords={node.keywords}
+      />
+      ))}
+    </Layout>
+  );
+};
+
+export default Index;
+
+export const query = graphql`
+  query MainImageQuery {
+    allSanityMetadata {
+      edges {
+        node {
+          keywords
+          description
+        }
+      }
+    }
+  }
+`;
+
 ```
 
 ## Built With
