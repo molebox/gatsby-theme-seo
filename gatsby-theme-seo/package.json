@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-seo",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "An gatsby theme that implements SEO for your website",
   "main": "index.js",
   "types": "./dist/seo.d.ts",
@@ -25,12 +25,9 @@
     "react"
   ],
   "dependencies": {
-    "gatsby": "^2.15.16",
     "gatsby-plugin-react-helmet": "^3.1.7",
     "gatsby-plugin-sitemap": "^2.2.19",
     "gatsby-plugin-typescript": "^2.1.8",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1"
   },
   "peerDependencies": {
