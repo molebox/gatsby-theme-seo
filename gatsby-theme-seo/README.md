@@ -16,6 +16,7 @@ A Gatsby theme for site SEO. Built with TypeScript.
 | meta          |   Yes    | array      | None    |
 | keywords      |   Yes    | string[]   | None    |
 | pathname      |   Yes    | string     | None    |
+| twitter       |   Yes    | string     | None    |
 
 ## Image Object
 
@@ -39,10 +40,7 @@ module.exports = {
                 title: 'My Website',
                 description: 'I am describing my website right here!',
                 author: 'Rich Haines',
-                siteUrl: 'https://www.myawesomewebsite.com',
-                social: {
-                    twitter: 'studio_hungry'
-                }
+                siteUrl: 'https://www.myawesomewebsite.com'
             }
         }
     ]

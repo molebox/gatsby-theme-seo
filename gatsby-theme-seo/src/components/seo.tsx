@@ -10,6 +10,7 @@ interface Props {
 	meta?: [];
 	keywords?: string[];
 	pathname?: string;
+	twitter?: string;
 }
 
 interface Image {
@@ -28,7 +29,7 @@ interface Image {
  * @param keywords The pages keywords. Example - blog
  * @param pathname The path of the current page. Example - www.myblog.com/pathname
  */
-const SEO = ({ title, description, lang = 'en', meta, image, keywords, pathname }: Props) => {
+const SEO = ({ title, description, lang = 'en', meta, image, keywords, pathname, twitter }: Props) => {
 	return (
 		<StaticQuery
 			query={detailsQuery}
@@ -66,7 +67,7 @@ const SEO = ({ title, description, lang = 'en', meta, image, keywords, pathname 
 							},
 							{
 								name: `twitter:creator`,
-								content: `@${data.site.siteMetadata.social.twitter}`,
+								content: `@${twitter ? twitter : ''}`,
 							},
 							{
 								name: `twitter:title`,
@@ -127,15 +128,12 @@ const SEO = ({ title, description, lang = 'en', meta, image, keywords, pathname 
 export default SEO;
 
 const detailsQuery = graphql`
-	query DefaultSEOQuery {
+	query GatsbyThemeSEODefault {
 		site {
 			siteMetadata {
 				title
 				siteUrl
 				author
-				social {
-					twitter
-				}
 			}
 		}
 	}
