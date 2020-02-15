@@ -2,33 +2,31 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
+/**
+ * An SEO component to be used in any component to boost Search Engine Optimization
+ */
 interface Props {
+	/** The title of the page */
 	title: string;
+	/** The pages description */
 	description?: string;
+	/** The language of the website. Default set to 'en' */
 	lang: string;
-	image?: Image;
+	/** The pages main image. If supplied, must supply src, height and width of image. This can be taken from your graphql query */
+	image?: {
+		src: string;
+		height: string;
+		width: string;
+	};
+	/** The HTML meta tag */
 	meta?: [];
+	/** The pages keywords. Example - blog */
 	keywords?: string[];
+	/** The path of the current page. Example - www.myblog.com/pathname */
 	pathname?: string;
 	twitter?: string;
 }
 
-interface Image {
-	src: string;
-	height: string;
-	width: string;
-}
-
-/**
- * An SEO component to be used in any component to boost Search Engine Optimization
- * @param title The title of the page
- * @param descrition The pages description
- * @param lang The language of the website. Default set to 'en'
- * @param image The pages main image. If supplied, must supply src, height and width of image. This can be taken from your graphql query
- * @param meta The HTML meta tag
- * @param keywords The pages keywords. Example - blog
- * @param pathname The path of the current page. Example - www.myblog.com/pathname
- */
 const SEO = ({ title, description, lang = 'en', meta, image, keywords, pathname, twitter }: Props) => {
 	return (
 		<StaticQuery

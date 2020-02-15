@@ -1,17 +1,25 @@
-module.exports = (options) => {
-    const {title, author, siteUrl, social} = options;
+const path = require('path');
 
-    return {
-        siteMetadata: {
-            title,
-            author,
-            siteUrl,
-            social
-        },
-        plugins: [
-            'gatsby-plugin-react-helmet',
-            'gatsby-plugin-sitemap',
-            'gatsby-plugin-typescript'
-        ]
-    }
-}
+module.exports = (options) => {
+	const { title, author, siteUrl, social } = options;
+
+	return {
+		siteMetadata: {
+			title,
+			author,
+			siteUrl,
+			social,
+		},
+		plugins: [
+			'gatsby-plugin-react-helmet',
+			'gatsby-plugin-sitemap',
+			'gatsby-plugin-typescript',
+			{
+				resolve: '@pauliescanlon/gatsby-plugin-prop-shop',
+				options: {
+					source: [`${__dirname}/src/components`],
+				},
+			},
+		],
+	};
+};
