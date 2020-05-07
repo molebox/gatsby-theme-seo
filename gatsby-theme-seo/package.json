@@ -1,10 +1,6 @@
 {
   "name": "gatsby-theme-seo",
-<<<<<<< HEAD
-  "version": "0.0.3",
-=======
-  "version": "1.0.0",
->>>>>>> 291c555f59d7f3dc85af4da43df4f37fe3a20c56
+  "version": "1.0.1",
   "description": "An gatsby theme that implements SEO for your website",
   "main": "index.js",
   "types": "./dist/seo.d.ts",
