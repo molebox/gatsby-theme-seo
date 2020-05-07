@@ -1,6 +1,10 @@
 # gatsby-theme-seo
 A Gatsby theme for site SEO. Built with TypeScript.
 
+## BEAKING CHANGE ##
+
+As of v.1.0.0 the twitter handle is now removed from siteMetadata and instead taken as a prop o the actual SEO component itself. The reason for this change was to prevent clashing with other themes that use siteMetadata.
+
 ## Installation: 
 
 ```yarn add gatsby-theme-seo```
@@ -16,6 +20,7 @@ A Gatsby theme for site SEO. Built with TypeScript.
 | meta          |   Yes    | array      | None    |
 | keywords      |   Yes    | string[]   | None    |
 | pathname      |   Yes    | string     | None    |
+| twitter       |   Yes    | string     | None    |
 
 ## Image Object
 
@@ -39,10 +44,7 @@ module.exports = {
                 title: 'My Website',
                 description: 'I am describing my website right here!',
                 author: 'Rich Haines',
-                siteUrl: 'https://www.myawesomewebsite.com',
-                social: {
-                    twitter: 'studio_hungry'
-                }
+                siteUrl: 'https://www.myawesomewebsite.com'
             }
         }
     ]

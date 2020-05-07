@@ -10,6 +10,7 @@ module.exports = (options) => {
         },
         plugins: [
             'gatsby-plugin-react-helmet',
+            'gatsby-plugin-sitemap',
             'gatsby-plugin-typescript'
         ]
     }

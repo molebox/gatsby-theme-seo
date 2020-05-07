@@ -6,16 +6,11 @@ interface Props {
 	title: string;
 	description?: string;
 	lang: string;
-	image?: Image;
 	meta?: [];
 	keywords?: string[];
 	pathname?: string;
-}
-
-interface Image {
-	src: string;
-	height: string;
-	width: string;
+	twitter?: string;
+	ogImage?: string;
 }
 
 /**
@@ -28,13 +23,12 @@ interface Image {
  * @param keywords The pages keywords. Example - blog
  * @param pathname The path of the current page. Example - www.myblog.com/pathname
  */
-const SEO = ({ title, description, lang = 'en', meta, image, keywords, pathname }: Props) => {
+const SEO = ({ title, description, lang = 'en', meta, keywords, pathname, twitter, ogImage }: Props) => {
 	return (
 		<StaticQuery
 			query={detailsQuery}
 			render={(data) => {
 				const metaDescription = description || '';
-				const metaImage = image && image.src ? `${data.site.siteMetadata.siteUrl}${image.src}` : null;
 				const metaUrl = `${data.site.siteMetadata.siteUrl}${pathname}`;
 				return (
 					<Helmet
@@ -61,12 +55,16 @@ const SEO = ({ title, description, lang = 'en', meta, image, keywords, pathname 
 								content: metaDescription,
 							},
 							{
+								property: `og:image`,
+								content: ogImage ? ogImage : '',
+							},
+							{
 								property: `og:type`,
-								content: `website`,
+								content: ogImage ? `article` : `website`,
 							},
 							{
 								name: `twitter:creator`,
-								content: `@${data.site.siteMetadata.social.twitter}`,
+								content: `@${twitter ? twitter : ''}`,
 							},
 							{
 								name: `twitter:title`,
@@ -78,23 +76,15 @@ const SEO = ({ title, description, lang = 'en', meta, image, keywords, pathname 
 							},
 						]
 							.concat(
-								metaImage && image
+								ogImage
 									? [
 											{
 												property: `og:image`,
-												content: metaImage,
+												content: ogImage,
 											},
 											{
 												property: `og:image:alt`,
 												content: title,
-											},
-											{
-												property: 'og:image:width',
-												content: image.width,
-											},
-											{
-												property: 'og:image:height',
-												content: image.height,
 											},
 											{
 												name: `twitter:card`,
@@ -127,15 +117,12 @@ const SEO = ({ title, description, lang = 'en', meta, image, keywords, pathname 
 export default SEO;
 
 const detailsQuery = graphql`
-	query DefaultSEOQuery {
+	query GatsbyThemeSEODefault {
 		site {
 			siteMetadata {
 				title
 				siteUrl
 				author
-				social {
-					twitter
-				}
 			}
 		}
 	}
