@@ -55,7 +55,7 @@ const SEO = ({ title, description, lang = 'en', meta, keywords, pathname, twitte
 								content: metaDescription,
 							},
 							{
-								property: `twitter:image`,
+								property: `og:image`,
 								content: ogImage ? ogImage : '',
 							},
 							{
